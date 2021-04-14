@@ -1,0 +1,45 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+.content{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cirle_logo{
+    width: 200px;
+    height: 200px;
+    border: 2px solid #1453F3;
+    border-radius: 50%;
+    background: #E4DADA;
+}
+.name_author{
+    font-size:20px;
+}
+.post{
+
+}
+#rectangle {
+    width: 650px;
+    height: 120px;
+    background: #DCE7EF;
+}
+.photo_name{
+    width: 200px; /* Ширина элемента в пикселах */
+    padding: 10px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+}
+.name_author{
+    float: left; /* Обтекание по правому краю */
+    padding: 28px; /* Поля вокруг текста */
+    width: 50%; /* Ширина блока */
+    padding-left: 19px;
+}
+.blog_user {
+    display: flex;
+    padding-top: 40px;
+}
+.column {
+    flex: 50%;
+}

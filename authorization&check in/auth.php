@@ -18,11 +18,11 @@ else{
 	$password_user="admin";
 	if( ($login_user == $login) and ($password_user == $pass) )
 	{
-		header('Location: /Проект/admin/');
+		header('Location: /Микроблог Newswriter/admin/');
 	}
 	else
 	{
-	header('Location: /Проект/user/');
+	header('Location: /Микроблог Newswriter/user/');
 	}
 	$mysql->close();
 }

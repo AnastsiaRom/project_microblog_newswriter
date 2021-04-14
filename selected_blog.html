@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/head.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/selected_blog.css">
     <link rel="stylesheet" href="css/besement.css">
     </style>
 </head>
@@ -34,61 +34,24 @@
             </div>
         </nav>
     </header>
-   <div class="rows">
-       <div class="column left">
-           <div class="cont">
-               <div class="block_text1">
-                   <p class="zagolovok">Добро пожаловать на сайт Микроблога “Newswriter”</p>
-                   <p class="text_block1">Интересные блоги</p>
-                   <p class="text_block1">Интересные люди</p>
-                   <p class="text_block1">Нормально тут так-то</p>
-               </div>
-               <div>
-                   <img class="img" src="imge/microblog.png" alt="Error">
-               </div>
-           </div>
-       </div>
 
-
-       <div class="column right" >
-        <div class="fomi" >
-            <!--   Авторизация-->
-           <div class="container mt-4">
-                <div class="row" style="background: #E8E5E5;padding: 0 0 20px 0;">
-                    <div class="col">
-                        <h1>Авторизации</h1>
-                        <form action="authorization&check in/auth.php" method="post">
-                            <input type="text" name="login" class="form-control" id="login" placeholder="Email"><br>
-                            <input type="password" name="pass" class="form-control" id="pass" placeholder="Password"><br>
-                            <button class="btn btn-success" type="submit">Авторизоваться</button><br>
-                        </form>
-                    </div>
-                </div>
-           </div>
-        <!--   Регистрация-->
-           <div class="container mt-4">
-               <div class="row" style="background: #E8E5E5; padding: 0 0 20px 0;">
-                   <div class="col">
-                       <h1>Регистрации</h1>
-                       <form action="authorization&check in/check.php" method="post">
-                           <input type="text" name="login" class="form-control" id="login" placeholder="Email"><br>
-                           <input type="text" name="name" class="form-control" id="name" placeholder="Name"><br>
-                           <input type="password" name="pass" class="form-control" id="pass" placeholder="Password">
-
-                           <table><tr><td><input type="text" name="chislo" id="chislo" placeholder="Число" class="chislo">+</td>
-                           <td><input type="text" name="chislo_1" id="chislo_1" placeholder="Число" class="chislo">=</td>
-                           <td><input type="text" name="summa" id="summa" placeholder="Сумма" class="chislo"></td>
-                           </tr><br></table><br>
-                           <td><input type="checkbox" disabled checked>
-                               <a href="https://www.4dk.ru/s/politika-operatora">Согласие на обработку персональных данных</a>
-                               </td><br><br>
-                           <button class="btn btn-success" type="submit">Зарегистрироваться</button><br>
-                       </form>
-                    </div>
-               </div>
-           </div>
+<div class="blog_user">
+    <div class="column user">
+        <div class="photo_name">
+            <img class="cirle_logo">
+            <a class="navbar-brand">
+                <p class="name_author ">Имя автора блога</p><br>
+                <p class="name_author ">Email</p>
+            </a>
         </div>
-       </div>
+    </div>
+    <div class="column post">
+        <div id="rectangle"></div><br>
+        <div id="rectangle"></div><br>
+        <div id="rectangle"></div><br>
+        <div id="rectangle"></div><br>
+        <div id="rectangle"></div><br>
+    </div>
 </div>
 
 

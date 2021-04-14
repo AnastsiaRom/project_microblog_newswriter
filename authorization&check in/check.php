@@ -32,5 +32,5 @@ $result = $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`) VALUES ('
 
 $mysql->close();
 
-header('Location: /Проект/user/');
+header('Location: /Микроблог Newswriter/successful_authorization.html');
 ?>

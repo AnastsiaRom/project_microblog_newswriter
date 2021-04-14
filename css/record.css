@@ -1,0 +1,294 @@
+.content{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.block_content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 35px;
+    width: 100%;
+}
+.cirle_logo{
+    border-radius: 8px;
+    width: 439px;
+    height:526px
+}
+.zagolovok_x{
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 20px;
+    flex-direction: column;
+}
+.ramka {
+    width: 400px;
+    height: 630px;
+    margin-left: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 3px solid;
+    border-color: #787587;
+}
+.form {
+    padding-left: 50px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confid_form {
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.form p {
+    width: 600px;
+    font-size: 18px;
+    font-family: "Roboto";
+    text-align: center;
+}
+.forms{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    Flex: firection column;
+}
+
+.form-inner {
+    
+    width:  100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-inner input{
+    margin-top: 20px;
+    display: flex;
+    background: #adadad;
+    color: #D4D4D4;
+    height: 50px;
+    width: 100%;
+    border-width: 0;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-size: 16px;
+}
+.form-inner1 input{
+    margin-top: 20px;
+    display: flex;
+    background: #adadad;
+    color: #D4D4D4;
+    height: 55px;
+    width: 173px;
+    border-width: 0;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-size: 16px;
+}
+.form-inner textarea {
+    margin-top: 20px;
+    display: flex;
+    background:#adadad;
+    color: #D4D4D4;
+    height: 240px;
+    width: 100%;
+    border-width: 0;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-size: 16px;
+}
+.form-inner input[type="submit"] {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    background: #AF3535;
+    color: white;
+}
+.form-inner textarea {resize: none;}
+.content h2{
+    margin-top: 35px;
+}
+
+.zagolovok{
+    font-size: 18px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+.text_block{
+    font-size: 14px;
+    text-align: center;
+    width: 624px;
+    padding-left: 80px;
+    justify-content: center;
+    display: flex;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .block_content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 15px 35px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        
+    } 
+    .form {
+        margin-left: 10%;
+        padding-left: 0px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .text_z{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-left: 8%;
+    }
+    .forms{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+@media screen and (max-width: 490px) {
+    .block_content{
+        margin-right: 16%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 15px 35px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        
+    } 
+    .text_block {
+        width: 356px;
+        margin-left: -16%;
+    }
+    .text_z{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-left: 0%;
+    }
+    .form {
+        padding-left: 0px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .forms{
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .cirle_logo {
+        background-color: rgb(212, 212, 212);
+        width: 350px;
+        height: 500px;
+        margin: 20px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .zagolovok {
+        margin-left: -10%;
+    }
+    .ramka {
+        width: 350px;
+        height: 540px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 3px solid;
+        border-color: grey;
+        margin-left: 19%;
+    }
+    .h3, h3 {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 370px) {
+    .block_content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 15px 35px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        
+    } 
+    .form {
+        padding-left: 0px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .forms{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+   .cirle_logo{
+        width: 295px;
+        height: 460px;
+   }
+    .ramka {
+        margin-left: 23%;
+        width: 305px;
+        height: 470px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 3px solid;
+        border-color: grey;
+    }
+    .h3, h3 {
+        font-size: 16px;
+    }
+    .text_block {
+        margin-left: -20%;
+    }
+    .zagolovok {
+        margin-left: -17%;
+    }
+}

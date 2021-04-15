@@ -5,29 +5,25 @@
 
         // преобразуем специальные символы в текст
 
-        $name = htmlspecialchars($_POST['name']);
-        $email = htmlspecialchars($_POST['email']);
-        $message = htmlspecialchars($_POST['message']);
-        $rating = htmlspecialchars($_POST['rating']);
+        $topic = htmlspecialchars($_POST['topic']);
+        $post_text = htmlspecialchars($_POST['post_text']);
 
         // заносим данные из формы в переменные и проверяем на ошибки
 
-        $name = strip_tags(trim($_POST['name']));
-        $email = strip_tags(trim($_POST['email']));
-        $message = strip_tags(trim($_POST['message']));
-        $rating = strip_tags(trim($_POST['rating']));
+        $topic = strip_tags($_POST['topic']);
+        $post_text = strip_tags($_POST['post_text']);
         $date = $_POST['date'];
 
-        // заносим дату и время отзыва
+        // заносим дату и время создания поста
         $date = date('Y-m-d H:i');
 
         // проверка введенных данных
 
-        if($name != '' AND $email != '' AND $message != ''){ if (!preg_match("/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i", $email)) {$err = 'Неверно введен е-mail.';}
-
+        if($topic != '' AND $post_text != '')
+        {
             // отправка данных в бд
 
-            mysqli_query($link, " INSERT INTO reviews (name, email, message, date, rating) VALUES ('$name', '$email', '$message', '$date', '$rating')");
+            mysqli_query($link, " INSERT INTO crud_post (topic, post_text, date) VALUES ('$topic', '$post_text', '$date')");
 
             // закрываем сеанс 
 
@@ -35,9 +31,9 @@
 
             //редирект
 
-            header ("location: index.php");
+            header ("Location: /Микроблог Newswriter/admin/index.html");
         }
     }
 
-    include_once 'form.php';
+    include_once '../admin/blog_auth.html';
 ?>

@@ -1,24 +1,23 @@
-<?php 
-
-$login = filter_var(trim($_POST['login']), FILTER_SANITIZE_STRING); // Удаляет все лишнее и записываем значение в переменную //$login
+<?php
+$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING); // Удаляет все лишнее и записываем значение в переменную //$login
 $name = filter_var(trim($_POST['name']), FILTER_SANITIZE_STRING);
-$pass = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
+$password = filter_var(trim($_POST['password']), FILTER_SANITIZE_STRING);
 $chislo = $_POST['chislo'];
 $chislo_1 = $_POST['chislo_1'];
 $summa = $_POST['summa'];
 $sum = $chislo + $chislo_1;
 
 
-if(mb_strlen($login) < 5 || mb_strlen($login) > 90){
-	echo "Недопустимая длина логина";
+if(mb_strlen($email) < 5 || mb_strlen($email) > 90 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+	echo "Недопустимая длина email или некорректно введен email";
 	exit();
 }
-else if(mb_strlen($name) < 3 || mb_strlen($name) > 50){
+else if(mb_strlen($name) < 1 || mb_strlen($name) > 50){
 	echo "Недопустимая длина имени";
 	exit();
-} // Проверяем длину имени
-else if(mb_strlen($pass) < 2 || mb_strlen($pass) > 10){
-	echo "Недопустимая длина имени (от 2 до 10 символов)";
+}
+else if(mb_strlen($password) < 3 || mb_strlen($password) > 20){
+	echo "Недопустимая длина пароля (от 2 до 20 символов)";
 	exit();
 }
 else if($summa != $sum){
@@ -26,9 +25,8 @@ else if($summa != $sum){
 	exit();
 }
 
-session_start();
 require "blocks/correct.php";
-$result = $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`) VALUES ('$login', '$pass', '$name')");
+$result = $mysql->query("INSERT INTO `users` (`email`, `password`, `name`) VALUES ('$email', '$password', '$name')");
 
 $mysql->close();
 

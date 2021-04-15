@@ -1,12 +1,12 @@
 <?php 
 
-$login = filter_var(trim($_POST['login']), FILTER_SANITIZE_STRING);
-$pass = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
+$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING);
+$password = filter_var(trim($_POST['password']), FILTER_SANITIZE_STRING);
 
 
 require "blocks/correct.php";
 
-$result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
+$result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'");
 $user = mysqli_fetch_row($result);
 
 if($user == null){
@@ -14,16 +14,7 @@ if($user == null){
 }
 else{
 	setcookie("user", $user[3], time() + 3600, "/"); //Создаём куки
-	$login_user="admin";
-	$password_user="admin";
-	if( ($login_user == $login) and ($password_user == $pass) )
-	{
-		header('Location: /Микроблог Newswriter/admin/');
-	}
-	else
-	{
-	header('Location: /Микроблог Newswriter/user/');
-	}
 	$mysql->close();
+	header('Location: /Микроблог Newswriter/admin/index.html');
 }
 ?>

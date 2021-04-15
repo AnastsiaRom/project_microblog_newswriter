@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php include_once 'db.php'; ?>
+
+
+<html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,19 +39,6 @@
             </div>
         </nav>
    </header>
-
-
-<?php $result = mysqli_query($link, "SELECT * FROM `reviews` ORDER BY id DESC") ?>
-<?php while($res = mysqli_fetch_assoc($result)) { ?>
-
-<div class="reviews_post">
-    <div class="reviews">
-        <div class="review_text">
-            <br>
-            <?= $res['message'] ?> <br>
-        </div>
-    </div>
-<?php } ?>
 
 <div class="content">
     <h3>Все поля обязательны для заполнения</h3>

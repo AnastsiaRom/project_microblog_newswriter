@@ -45,7 +45,7 @@
 
     <div class="reviews">
         <div class="review_text">
-            <b>Имя:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['date'])) ?>
+            <b>Имя:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
             <br>
             <?= $res['post_text'] ?> <br>
         </div>
@@ -60,7 +60,7 @@
             <form method="post" action="../creat%20post/index.php" id="review">
                 <br>
                 <input type="text" name="topic" placeholder="Тема" required>
-                <input type="date" name="date" hidden="true">
+                <input type="date" name="data" hidden="true">
                 <textarea name="post_text" placeholder=" Текст поста" required></textarea>
                 <input type="submit" name="add" value="Опубликовать пост">
             </form>

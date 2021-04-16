@@ -18,7 +18,7 @@
         // проверка введенных данных
         if($topic != '' AND $post_text != '')
         {
-            mysqli_query($link, "INSERT INTO crud_post (topic, post_text, date) VALUES ('$topic', '$post_text', '$date')");
+            mysqli_query($link, "INSERT INTO crud_post (topic, post_text, data) VALUES ('$topic', '$post_text', '$data')");
             mysqli_close($link);
             header ("Location: /Микроблог Newswriter/admin/index.html");
         }

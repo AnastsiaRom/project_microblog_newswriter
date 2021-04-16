@@ -42,29 +42,29 @@
     float: left;
   }
 
-  /*.reviews {*/
-  /*  margin-bottom: 4%;*/
-  /*  font-size: 0.9em;*/
-  /*  text-align: left;*/
-  /*  width: 50%;*/
-  /*  padding: 1% 0 0 5px;*/
-  /*  margin: 0 0 0 27%;*/
-  /*  float: left;*/
-  /*}*/
+  .reviews {
+    margin-bottom: 4%;
+    font-size: 0.9em;
+    text-align: left;
+    width: 50%;
+    padding: 1% 0 0 5px;
+    margin: 0 0 0 27%;
+    float: left;
+  }
 
-  /*.reviews .review_text {*/
+  .reviews .review_text {
 
-  /*  background-color: #f2f2f2;*/
-  /*  color: black;*/
-  /*  padding: 1%;*/
-  /*  border-radius: 5px;*/
-  /*  border: solid 1px;*/
-  /*  width: 160%;*/
-  /*  height: 11%;*/
-  /*  padding-top: 2%;*/
-  /*  bottom: 2%;*/
-  /*  padding-left: 2%;*/
-  /*}*/
+    background-color: #f2f2f2;
+    color: black;
+    padding: 1%;
+    border-radius: 5px;
+    border: solid 1px;
+    width: 160%;
+    height: 11%;
+    padding-top: 2%;
+    bottom: 2%;
+    padding-left: 2%;
+  }
 
   .send {
 

@@ -1,7 +1,4 @@
 <?php
-    $dblocation = 'localhost'; // имя хоста 
-    $dbuser = 'root'; // имя пользователя
-    $dbpasswd = 'root'; // пароль пользователя
     $database = 'newswriter_bd'; // имя базы данных
     $db_table = "crud_post"; // Имя Таблицы БД
 

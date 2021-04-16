@@ -1,4 +1,4 @@
-<?php include_once 'db.php'; ?>
+<?php include_once '../creat post/db.php'; ?>
 
 
 <html>
@@ -33,44 +33,57 @@
                         <a class="nav-link" href="index.html">Основная</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="blog_auth.html">Блоги<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="blog_auth.php">Блоги<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
         </nav>
    </header>
 
-<div class="content">
-    <h3>Все поля обязательны для заполнения</h3>
-    <br>
-    <div class="send">
-        <form method="post" action="../creat%20post/index.php" id="review">
+   <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
+   <?php while($res = mysqli_fetch_assoc($result)) { ?>
+
+    <div class="reviews">
+        <div class="review_text">
+            <b>Имя:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['date'])) ?>
             <br>
-            <input type="text" name="name" placeholder="Тема" required>
-            <input type="date" name="date" hidden="true">
-            <textarea name="message" placeholder=" Текст поста" required></textarea>
-            <input type="submit" name="add" value="Опубликовать пост">
-        </form>
+            <?= $res['post_text'] ?> <br>
+        </div>
     </div>
-</div>
-</div>
+    <?php } ?>
 
 
-<div class="podval">
-    <div class="podval_left">
-        <div class="podval_logo">
-            <p class="podval_text_logo">Микроблог "Newswriter"</p>
+    <div class="content">
+        <h3>Все поля обязательны для заполнения</h3>
+        <br>
+        <div class="send">
+            <form method="post" action="../creat%20post/index.php" id="review">
+                <br>
+                <input type="text" name="topic" placeholder="Тема" required>
+                <input type="date" name="date" hidden="true">
+                <textarea name="post_text" placeholder=" Текст поста" required></textarea>
+                <input type="submit" name="add" value="Опубликовать пост">
+            </form>
         </div>
     </div>
-    <div class="podval_right">
-        <div class="podval_buttons">
-            <a class="button_text_podval" href="index.html">О сайте</a>
-            <a class="button_text_podval" href="">Тендер</a>
+    </div>
+
+
+    <div class="podval">
+        <div class="podval_left">
+            <div class="podval_logo">
+                <p class="podval_text_logo">Микроблог "Newswriter"</p>
+            </div>
         </div>
-        <div class="podval_text_child">
-            <a href="https://www.4dk.ru/s/politika-operatora">Согласие на обработку персональных данных. Политика оператора в отношении обработки персональных данных.</a>
+        <div class="podval_right">
+            <div class="podval_buttons">
+                <a class="button_text_podval" href="index.html">О сайте</a>
+                <a class="button_text_podval" href="">Тендер</a>
+            </div>
+            <div class="podval_text_child">
+                <a href="https://www.4dk.ru/s/politika-operatora">Согласие на обработку персональных данных. Политика оператора в отношении обработки персональных данных.</a>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>

@@ -15,6 +15,6 @@ else{
 	setcookie("user", $user[3], time() + 3600, "/"); //Создаём куки
 	echo $_SESSION['name'] = $name;
 	$mysql->close();
-	header('Location: /Микроблог Newswriter/admin/index.html');
+	header('Location: /Микроблог Newswriter/admin/index.php');
 }
 ?>

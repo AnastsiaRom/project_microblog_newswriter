@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php include_once '../creat post/db.php'; ?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Основная</a>
+                        <a class="nav-link" href="index.php">Основная</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="blog_auth.php">Блоги<span class="sr-only">(current)</span></a>
@@ -48,11 +50,17 @@
         </div>
     </div>
     <div class="column post">
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
+        <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
+        <?php while($res = mysqli_fetch_assoc($result)) { ?>
+
+            <div class="reviews">
+                <div class="review_text" id="rectangle">
+                    <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
+                    <br>
+                    <?= $res['post_text'] ?> <br>
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </div>
 

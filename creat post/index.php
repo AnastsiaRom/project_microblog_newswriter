@@ -20,7 +20,7 @@
         {
             mysqli_query($link, "INSERT INTO crud_post (topic, post_text, data) VALUES ('$topic', '$post_text', '$data')");
             mysqli_close($link);
-            header ("Location: /Микроблог Newswriter/admin/index.html");
+            header ("Location: /Микроблог Newswriter/admin/index.php");
         }
     }
 

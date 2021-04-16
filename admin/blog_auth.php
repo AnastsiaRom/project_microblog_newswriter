@@ -40,19 +40,6 @@
         </nav>
    </header>
 
-   <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
-   <?php while($res = mysqli_fetch_assoc($result)) { ?>
-
-    <div class="reviews">
-        <div class="review_text">
-            <b>Имя:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
-            <br>
-            <?= $res['post_text'] ?> <br>
-        </div>
-    </div>
-    <?php } ?>
-
-
     <div class="content">
         <h3>Все поля обязательны для заполнения</h3>
         <br>
@@ -77,7 +64,7 @@
         </div>
         <div class="podval_right">
             <div class="podval_buttons">
-                <a class="button_text_podval" href="index.html">О сайте</a>
+                <a class="button_text_podval" href="index.php">О сайте</a>
                 <a class="button_text_podval" href="">Тендер</a>
             </div>
             <div class="podval_text_child">

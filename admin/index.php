@@ -1,6 +1,5 @@
 <?php include_once '../creat post/db.php'; ?>
 
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +12,7 @@
     <link rel="stylesheet" href="../css/selected_blog.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/besement.css">
-    </style>
+    <link rel="stylesheet" href="../css/blog_auth.css">
 </head>
 <body>
    <header>

@@ -6,6 +6,7 @@
         // преобразуем специальные символы в текст
         $topic = htmlspecialchars($_POST['topic']);
         $post_text = htmlspecialchars($_POST['post_text']);
+        $id_post_users = ;
 
         // заносим данные из формы в переменные и проверяем на ошибки
         $topic = strip_tags(trim($_POST['topic']));

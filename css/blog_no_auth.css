@@ -45,9 +45,9 @@
 }
 
 hr {
-    width: 1500px;
+    width: 50%;
+    margin: 0 25% 0 25%;
     border: none; /* Убираем границу */
     background-color: #000000; /* Цвет линии */
-    color: #000000; /* Цвет линии для IE6-7 */
     height: 2px; /* Толщина линии */
 }

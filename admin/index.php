@@ -1,16 +1,18 @@
 <?php include_once '../creat post/db.php'; ?>
-<?php include '../crud/func.php'; ?>
+<?php
+include '../crud/func.php';
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Основная</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     <link rel="stylesheet" href="../css/head.css">
     <link rel="stylesheet" href="../css/selected_blog.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -45,26 +47,26 @@
     <div class="column user">
         <div class="photo_name">
 
-            <?
-                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
-                    if (mysqli_connect_errno()) {
-                      printf("Не удалось подключиться: %s\n", mysqli_connect_error());
-                      exit();
-                    }
-
-                  $query = "SELECT * FROM images";
-
-                  if ($result = $mysql->query($query)) {
-
-
-                      while ($last = $result->fetch_assoc()) {
-                          echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
-                      }
-                         echo '<a href="addIMG.php"><div class="add-photo"><img class="addForm" width = "20px" src="../imge/add.png" alt="ОЙ">Добавить фото</div></a>';
-                      $result->close();
-                  }
-                  $mysql->close();
-            ?>
+//             <?
+//                     $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+//                     if (mysqli_connect_errno()) {
+//                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+//                       exit();
+//                     }
+//
+//                   $query = "SELECT * FROM images";
+//
+//                   if ($result = $mysql->query($query)) {
+//
+//
+//                       while ($last = $result->fetch_assoc()) {
+//                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+//                       }
+//                          echo '<a href="addIMG.php"><div class="add-photo"><img class="addForm" width = "20px" src="../imge/add.png" alt="ОЙ">Добавить фото</div></a>';
+//                       $result->close();
+//                   }
+//                   $mysql->close();
+//             ?>
 
             <a class="navbar-brand">
                 <p class="name_author"> <?=$_COOKIE['user'];?></p>
@@ -74,27 +76,36 @@
         </div>
     </div>
 
-    <div class="column post">
-        <?=$success ?>
-        <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
-        <?php while($res = mysqli_fetch_assoc($result)) { ?>
-
-            <div class="reviews">
-                <div class="review_text" id="rectangle">
-                    <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
-                    <br>
-                    <?= $res['post_text'] ?> <br>
-
-                    <a href="?edit=<?=$value['id_post'] ?>" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editModal<?=$value['id_post'] ?>"><i class="fa fa-edit"></i></a>
-					<a href="?delete=<?=$value['id_post'] ?>" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal<?=$value['id_post'] ?>"><i class="fa fa-trash"></i></a>
-					<?php require '../crud/modal.php'; ?>
-
-                </div>
-            </div>
-        <?php } ?>
-    </div>
+    <div class="container">
+		<div class="column post_text">
+			<div class="col mt-1">
+				<?=$success ?>
+				<table class="table table-striped table-hover mt-2">
+					<thead class="table-dark">
+						<tr>
+							<th>Тема</th>
+							<th>Текст поста</th>
+							<th>Редактировать/Удалить</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ($result as $value) { ?>
+						<tr>
+							<td><?=$value['id_post'] ?></td>
+							<td><?=$value['topic'] ?></td>
+							<td><?=$value['post_text'] ?></td>
+							<td>
+								<a href="?edit=<?=$value['id_post'] ?>" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editModal<?=$value['id_post'] ?>"><i class="fa fa-edit"></i></a>
+								<a href="?delete=<?=$value['id_post'] ?>" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal<?=$value['id_post'] ?>"><i class="fa fa-trash"></i></a>
+								<?php require '../crud/modal.php'; ?>
+							</td>
+						</tr> <?php } ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
-
 
 <div class="podval">
     <div class="podval_left">
@@ -112,5 +123,10 @@
         </div>
     </div>
 </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

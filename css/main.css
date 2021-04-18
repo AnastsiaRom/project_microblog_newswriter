@@ -93,3 +93,20 @@ p{
     width: 20px;
     height: 20px;
 }
+
+
+.mt-4, .my-4 {
+    margin-top: 9.5rem!important;
+    height: 503px;
+}
+
+.centr {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85em
+}
+
+.row{
+    height: 638px;
+}

@@ -21,7 +21,7 @@ p{
 .column {
     float: left;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    /*height: 300px; !* Should be removed. Only for demonstration *!*/
 }
 
 .column left {
@@ -40,7 +40,7 @@ p{
 .rows {
     display: flex;
     clear: both;
-    height: 840px;
+    height: 79%;
 }
 
 .block1{
@@ -87,4 +87,9 @@ p{
     display: flex;
     padding-top: 40px;
     height: 854px;
+}
+
+.addForm{
+    width: 20px;
+    height: 20px;
 }

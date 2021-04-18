@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php include_once 'creat post/db.php'; ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,8 @@
     <link rel="stylesheet" href="css/head.css">
     <link rel="stylesheet" href="css/selected_blog.css">
     <link rel="stylesheet" href="css/besement.css">
-    </style>
+    <link rel="stylesheet" href="css/blog_auth.css">
+    <link rel="stylesheet" href="css/blog_no_auth.css">
 </head>
 <body>
    <header>
@@ -46,11 +48,17 @@
         </div>
     </div>
     <div class="column post">
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
-        <div id="rectangle"></div><br>
+        <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
+        <?php while($res = mysqli_fetch_assoc($result)) { ?>
+
+            <div class="reviews">
+                <div class="review_text" id="rectangle">
+                    <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
+                    <br>
+                    <?= $res['post_text'] ?> <br>
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </div>
 

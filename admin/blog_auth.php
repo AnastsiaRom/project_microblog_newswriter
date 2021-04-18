@@ -1,6 +1,4 @@
 <?php include_once '../creat post/db.php'; ?>
-
-
 <html>
 <html lang="en">
 <head>
@@ -15,7 +13,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/besement.css">
     <link rel="stylesheet" href="../css/blog_auth.css">
-    </style>
+    <link rel="stylesheet" href="../css/blog_no_auth.css">
 </head>
 <body>
    <header>
@@ -40,19 +38,20 @@
         </nav>
    </header>
 
-    <div class="content">
-        <h3>Все поля обязательны для заполнения</h3>
-        <br>
-        <div class="send">
-            <form method="post" action="../creat%20post/index.php" id="review">
-                <br>
-                <input type="text" name="topic" placeholder="Тема" required>
-                <input type="date" name="data" hidden="true">
-                <textarea name="post_text" placeholder=" Текст поста" required></textarea>
-                <input type="submit" name="add" value="Опубликовать пост">
-            </form>
+   <div class="content_length">
+        <div class="content">
+            <h3>Все поля обязательны для заполнения</h3>
+            <br>
+            <div class="send">
+                <form method="post" action="../creat%20post/index.php" id="review">
+                    <br>
+                    <input type="text" name="topic" placeholder="Тема" required>
+                    <input type="date" name="data" hidden="true">
+                    <textarea name="post_text" placeholder=" Текст поста" required></textarea>
+                    <input type="submit" name="add" value="Опубликовать пост">
+                </form>
+            </div>
         </div>
-    </div>
     </div>
 
 

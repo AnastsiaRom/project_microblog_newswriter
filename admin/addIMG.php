@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
@@ -12,10 +11,10 @@
     <div class="wrapper">
         <div class="load form">
             <form class="form" method="POST" enctype="multipart/form-data">
-                <p>Загрузи фото</p>
+                <p>Загрузить фото</p>
                 <input class="input" type="file" name="file" id="inputfile">
-                <input id="submit" class="input" type="submit"name="submit"value="Upload">
-                <a href="../admin/gallery.php"><div class="buttonBack">К галерее</div></a>
+                <input id="submit" class="input" type="submit" name="submit" value="Загрузить" placeholder="Выбрать">
+                <a href="../admin/index.php"><div class="buttonBack">К галерее</div></a>
             </form>
             <?php
 if (isset($_POST['submit'])) {
@@ -120,13 +119,13 @@ if (isset($_POST['submit'])) {
                         if (move_uploaded_file($file['tmp_name'], $path.$name)) {
                             // Далее можно сохранить название файла в БД и т.п.
                              // Подключение к базе данных
-                            $mysql = new mysqli("localhost", "root", "root", "images");
+                            $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
                             if (mysqli_connect_errno()) {
                                 printf("Не удалось подключиться: %s\n", mysqli_connect_error());
                                 exit();
                             }
                             $db_table = "images";
-                            $insert = "INSERT INTO ".$db_table." VALUES ('$path_bd','$name')";
+                            $insert = "INSERT INTO ".$db_table." VALUES ('1','$path_bd','$name')";
  
                             // Если есть ошибка соединения, выводим её и убиваем подключение
                             if ($mysql->connect_error) {

@@ -21,8 +21,8 @@
 
 }
 #rectangle {
+    height: auto;
     width: 650px;
-    height: 120px;
     background: #DCE7EF;
 }
 .photo_name{
@@ -43,7 +43,6 @@
 .column {
     flex: 50%;
 }
-
 hr {
     width: 50%;
     margin: 0 25% 0 25%;

@@ -15,26 +15,24 @@ body{
 }
 
 .input{
-    box-shadow: 0 0 2px rgba(0,0,0,0.5);
-    box-shadow: black;
+    box-shadow: #000000;
     text-align: center;
     outline:none;
     border-radius: 8px;
     border: none;
-    background-color: rgb(223, 223, 223);
+    background-color: #3C7EBB;
     padding: 10px 5px;
     margin: 10px 0;
 }
 
 
 #submit{
-
     border-width: 1px;
-    background-color: rgb(125, 205, 207);
+    background-color: #7F85A9;
 }
 
 p{
-    margin: 0 0 0px;
+    margin: 0 0 0;
     text-align: center;
 }
 .row{
@@ -49,7 +47,7 @@ p{
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    background-color: rgb(150, 143, 255);
+    background-color: #DCE7EF;
     height: 42px;
     width: 200px;
 }
@@ -59,7 +57,7 @@ a{
     font-size: inherit;
     display: flex;
     justify-content: center;
-    color: rgb(29, 29, 29) !important;
+    color: #000000 !important;
     text-decoration: none;
 }
 p{

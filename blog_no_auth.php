@@ -41,7 +41,7 @@
                 <div class="column user">
                     <div class="photo_name">
                         <img class="cirle_logo">
-                        <a class="navbar-brand" href="selected_blog.html">
+                        <a class="navbar-brand" href="selected_blog.php">
                             <p class="name_author">Имя автора блога</p>
                         </a>
                     </div>
@@ -62,39 +62,55 @@
             </div>
         </div>
 
-            <hr>
+            <hr />
 
             <div class="blog_user">
                 <div class="column user">
                     <div class="photo_name">
                         <img class="cirle_logo">
-                        <a class="navbar-brand" href="selected_blog.html">
+                        <a class="navbar-brand" href="selected_blog.php">
                             <p class="name_author ">Имя автора блога</p>
                         </a>
                     </div>
                 </div>
                 <div class="column post">
-                    <div id="rectangle"></div><br>
-                    <div id="rectangle"></div><br>
-                    <div id="rectangle"></div><br>
+                    <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
+                    <?php while($res = mysqli_fetch_assoc($result)) { ?>
+
+                        <div class="reviews">
+                            <div class="review_text" id="rectangle">
+                                <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
+                                <br>
+                                <?= $res['post_text'] ?> <br>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
 
-            <hr>
+            <hr />
 
             <div class="blog_user">
                 <div class="column user">
                     <div class="photo_name">
                         <img class="cirle_logo">
-                        <a class="navbar-brand" href="selected_blog.html">
+                        <a class="navbar-brand" href="selected_blog.php">
                             <p class="name_author">Имя автора блога</p>
                         </a>
                     </div>
                 </div>
                 <div class="column post">
-                    <div id="rectangle"></div><br>
-                    <div id="rectangle"></div><br>
-                    <div id="rectangle"></div><br>
+                    <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
+                    <?php while($res = mysqli_fetch_assoc($result)) { ?>
+
+                        <div class="reviews">
+                            <div class="review_text" id="rectangle">
+                                <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
+                                <br>
+                                <?= $res['post_text'] ?> <br>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

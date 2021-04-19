@@ -25,7 +25,18 @@ else if($summa != $sum){
 	exit();
 }
 
-require "blocks/correct.php";
+require_once "blocks/correct.php";
+
+// $results = $mysql->query("SELECT * FROM `newswriter_bd` WHERE `email` = '$email'");
+// echo "123";
+// $users = $results->fetch_assoc(); // Конвертируем в массив
+// echo "123";
+// if(!empty($users)){
+// 	echo "Email уже используется";
+// 	exit();
+// }
+
+
 $result = $mysql->query("INSERT INTO `users` (`email`, `password`, `name`) VALUES ('$email', '$password', '$name')");
 
 $mysql->close();

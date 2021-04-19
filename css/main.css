@@ -32,10 +32,6 @@ p{
     width: 20%;
 
 }
-.container{
-    background: #E8E5E5;
-}
-
 /* Clear floats after the columns */
 .rows {
     display: flex;

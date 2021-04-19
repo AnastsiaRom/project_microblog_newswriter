@@ -15,9 +15,9 @@ $result = $sql->fetchAll();
 // Update
 
 if (isset($_POST['edit-submit'])) {
-	$sqll = "UPDATE crud_post SET topic=?, post_text=?, pos=? WHERE id_post=?";
-	$querys = $pdo->prepare($sqll);
-	$querys->execute([$edit_topic, $edit_post_text, $get_id]);
+	$sql = "UPDATE crud_post SET topic=?, post_text=? WHERE id_post=?";
+	$query = $pdo->prepare($sql);
+	$query->execute([$edit_topic, $edit_post_text, $get_id]);
   header('Location: /Микроблог Newswriter/admin/index.php' );
 }
 

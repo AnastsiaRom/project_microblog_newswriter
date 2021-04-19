@@ -47,26 +47,26 @@ include '../crud/func.php';
     <div class="column user">
         <div class="photo_name">
 
-//             <?
-//                     $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
-//                     if (mysqli_connect_errno()) {
-//                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
-//                       exit();
-//                     }
-//
-//                   $query = "SELECT * FROM images";
-//
-//                   if ($result = $mysql->query($query)) {
-//
-//
-//                       while ($last = $result->fetch_assoc()) {
-//                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
-//                       }
-//                          echo '<a href="addIMG.php"><div class="add-photo"><img class="addForm" width = "20px" src="../imge/add.png" alt="ОЙ">Добавить фото</div></a>';
-//                       $result->close();
-//                   }
-//                   $mysql->close();
-//             ?>
+            <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                      printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                      exit();
+                    }
+
+                  $query = "SELECT * FROM images";
+
+                  if ($result = $mysql->query($query)) {
+
+
+                      while ($last = $result->fetch_assoc()) {
+                          echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                      }
+                         echo '<a href="addIMG.php"><div class="add-photo"><img class="addForm" width = "20px" src="../imge/add.png" alt="ОЙ">Добавить фото</div></a>';
+                      $result->close();
+                  }
+                  $mysql->close();
+            ?>
 
             <a class="navbar-brand">
                 <p class="name_author"> <?=$_COOKIE['user'];?></p>
@@ -89,11 +89,12 @@ include '../crud/func.php';
 						</tr>
 					</thead>
 					<tbody>
+					<?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
 					<?php foreach ($result as $value) { ?>
 						<tr>
-							<td><?=$value['id_post'] ?></td>
 							<td><?=$value['topic'] ?></td>
 							<td><?=$value['post_text'] ?></td>
+
 							<td>
 								<a href="?edit=<?=$value['id_post'] ?>" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editModal<?=$value['id_post'] ?>"><i class="fa fa-edit"></i></a>
 								<a href="?delete=<?=$value['id_post'] ?>" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal<?=$value['id_post'] ?>"><i class="fa fa-trash"></i></a>

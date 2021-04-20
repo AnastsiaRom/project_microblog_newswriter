@@ -11,12 +11,12 @@
         $topic = strip_tags(trim($_POST['topic']));
         $post_text = strip_tags(trim($_POST['post_text']));
         $data = $_POST['data'];
-        $id_users = $_POST['id_users'];
+        $id_users = $_SERVER['id_users'];
 
         // заносим дату и время создания поста
         $data = date('Y-m-d H:i');
 
-        // проверка введенных данных
+         // проверка введенных данных
         if($topic != '' AND $post_text != '')
         {
             mysqli_query($link, "INSERT INTO crud_post (topic, post_text, data, id_users) VALUES ('$topic', '$post_text', '$data', '1')");

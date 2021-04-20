@@ -14,6 +14,7 @@ if($user == null){
 else{
 	setcookie("user", $user[3], time() + 3600, "/"); //Создаём куки
 	echo $_SESSION['name'] = $name;
+	echo $_SESSION['email'] = $email;
 	$mysql->close();
 	header('Location: /Микроблог Newswriter/admin/index.php');
 }

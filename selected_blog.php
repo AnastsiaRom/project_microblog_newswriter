@@ -53,7 +53,7 @@
 
             <div class="reviews">
                 <div class="review_text" id="rectangle">
-                    <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
+                    <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data']))?> | <b>Индекст пользователя:</b><?=$res['id_users']?>
                     <br>
                     <?= $res['post_text'] ?> <br>
                 </div>

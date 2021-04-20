@@ -1,5 +1,4 @@
 <?php include_once '../creat post/db.php'; ?>
-<?php include '../crud/func.php'; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -67,8 +66,8 @@
             ?>
 
             <a class="navbar-brand">
-                <p class="name_author"> <?=$_COOKIE['user'];?></p>
-                <p class="name_author "><?=$_COOKIE['user'];?></p>
+                <p class="name_author"> <?=$_SESSION['name'];?></p>
+                <p class="name_author "><?=$_SESSION['email'];?></p>
                 <a href="../authorization&check in/exit.php">Чтобы выйти нажмите по ссылке.</a>
             </a>
         </div>
@@ -76,32 +75,17 @@
 
     <div class="container">
 		<div class="column post_text">
-			<div class="col mt-1">
-				<?=$success ?>
-				<table class="table table-striped table-hover mt-2">
-					<thead class="table-dark">
-						<tr>
-							<th>Тема</th>
-							<th>Текст поста</th>
-							<th>Редактировать/Удалить</th>
-						</tr>
-					</thead>
-					<tbody>
-					<?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
-					<?php foreach ($result as $value) { ?>
-						<tr>
-							<td><?=$value['topic'] ?></td>
-							<td><?=$value['post_text'] ?></td>
+			<?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
+                    <?php while($res = mysqli_fetch_assoc($result)) { ?>
 
-							<td>
-								<a href="?edit=<?=$value['id_post'] ?>" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editModal<?=$value['id_post'] ?>"><i class="fa fa-edit"></i></a>
-								<a href="?delete=<?=$value['id_post'] ?>" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal<?=$value['id_post'] ?>"><i class="fa fa-trash"></i></a>
-								<?php include_once '../crud/modal.php'; ?>
-								<?php include_once '../crud/func.php'; ?>
-							</td>
-						</tr> <?php } ?>
-					</tbody>
-				</table>
+                        <div class="reviews">
+                            <div class="review_text" id="rectangle">
+                                <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?>
+                                <br>
+                                <?= $res['post_text'] ?> <br>
+                            </div>
+                        </div>
+                    <?php } ?>
 			</div>
 		</div>
 	</div>

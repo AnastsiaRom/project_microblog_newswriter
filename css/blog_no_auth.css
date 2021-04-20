@@ -31,7 +31,7 @@
     margin: auto; /* Выравниваем по центру */
 }
 .name_author{
-    float: left; /* Обтекание по правому краю */
+    float: right; /* Обтекание по правому краю */
     padding: 28px; /* Поля вокруг текста */
     width: 50%; /* Ширина блока */
     padding-left: 19px;

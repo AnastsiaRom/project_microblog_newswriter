@@ -26,6 +26,7 @@ else if($summa != $sum){
 }
 
 require_once "blocks/correct.php";
+
 // проверка на пользователя с одинаковым email
 $results = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email'");
 $users = $results->fetch_assoc(); // Конвертируем в массив

@@ -1,7 +1,5 @@
 <?php include_once '../creat post/db.php'; ?>
-<?php
-include '../crud/func.php';
-?>
+<?php include '../crud/func.php'; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -98,7 +96,8 @@ include '../crud/func.php';
 							<td>
 								<a href="?edit=<?=$value['id_post'] ?>" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editModal<?=$value['id_post'] ?>"><i class="fa fa-edit"></i></a>
 								<a href="?delete=<?=$value['id_post'] ?>" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal<?=$value['id_post'] ?>"><i class="fa fa-trash"></i></a>
-								<?php require '../crud/modal.php'; ?>
+								<?php include_once '../crud/modal.php'; ?>
+								<?php include_once '../crud/func.php'; ?>
 							</td>
 						</tr> <?php } ?>
 					</tbody>

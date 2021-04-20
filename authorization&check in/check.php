@@ -26,16 +26,13 @@ else if($summa != $sum){
 }
 
 require_once "blocks/correct.php";
-
-// $results = $mysql->query("SELECT * FROM `newswriter_bd` WHERE `email` = '$email'");
-// echo "123";
-// $users = $results->fetch_assoc(); // Конвертируем в массив
-// echo "123";
-// if(!empty($users)){
-// 	echo "Email уже используется";
-// 	exit();
-// }
-
+// проверка на пользователя с одинаковым email
+$results = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email'");
+$users = $results->fetch_assoc(); // Конвертируем в массив
+if(!empty($users)){
+	echo"<b><center><font size=4 color=red>пользователь с таким E-mail уже зарегистрирован</font></center></b>";
+	exit();
+}
 
 $result = $mysql->query("INSERT INTO `users` (`email`, `password`, `name`) VALUES ('$email', '$password', '$name')");
 

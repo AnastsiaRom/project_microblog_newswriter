@@ -8,7 +8,7 @@ $summa = $_POST['summa'];
 $sum = $chislo + $chislo_1;
 
 
-if(mb_strlen($email) < 5 || mb_strlen($email) > 90 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+if(mb_strlen($email) < 2 || mb_strlen($email) > 90 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
 	echo "Недопустимая длина email или некорректно введен email";
 	exit();
 }
@@ -23,6 +23,10 @@ else if(mb_strlen($password) < 3 || mb_strlen($password) > 20){
 else if($summa != $sum){
 	echo "Считать научись";
 	exit();
+}
+else if(empty($_POST['checkboxs'])){
+    echo "Вы не согласились с согласием на обработку персональных данных";
+    exit();
 }
 
 require_once "blocks/correct.php";

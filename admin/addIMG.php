@@ -16,7 +16,7 @@
                 <p>Загрузить фото</p>
                 <input class="input" type="file" name="file" id="inputfile">
                 <input id="submit" class="input" type="submit" name="submit" value="Загрузить" placeholder="Выбрать">
-                <a href="../admin/index.php"><div class="buttonBack">К галерее</div></a>
+                <a href="../admin/index.php"><div class="buttonBack">К профилю</div></a>
             </form>
             <?php
 if (isset($_POST['submit'])) {

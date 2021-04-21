@@ -40,7 +40,25 @@
 <div class="blog_user">
     <div class="column user">
         <div class="photo_name">
-            <img class="cirle_logo">
+            <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                      printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                      exit();
+                    }
+
+                  $query = "SELECT * FROM images  WHERE  id_users= 1";
+
+                  if ($result = $mysql->query($query)) {
+
+
+                      while ($last = $result->fetch_assoc()) {
+                          echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                      }
+                      $result->close();
+                  }
+                  $mysql->close();
+            ?>
             <a class="navbar-brand">
                 <p class="name_author ">Имя автора блога</p><br>
                 <p class="name_author ">Email</p>
@@ -48,7 +66,7 @@
         </div>
     </div>
     <div class="column post">
-        <?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
+        <?php $result = mysqli_query($link, "SELECT * FROM `crud_post` WHERE  id_users= id_users") ?>
         <?php while($res = mysqli_fetch_assoc($result)) { ?>
 
             <div class="reviews">

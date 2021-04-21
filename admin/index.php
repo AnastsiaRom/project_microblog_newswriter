@@ -1,4 +1,5 @@
-<?php include_once '../creat post/db.php'; ?>
+<?php include_once '../creat post/db.php';
+session_start();?>
 
 <html lang="en">
 <head>
@@ -49,10 +50,9 @@
                       exit();
                     }
 
-                  $query = "SELECT * FROM images";
+                  $query = "SELECT * FROM images WHERE  id_users= ".$_SESSION['id'];
 
                   if ($result = $mysql->query($query)) {
-
 
                       while ($last = $result->fetch_assoc()) {
                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
@@ -64,8 +64,8 @@
             ?>
 
             <a class="navbar-brand">
-                <p class="name_author"> <?=htmlspecialchars($_COOKIE["users"]);?></p><br>
-                <p class="name_author "><?=htmlspecialchars($_COOKIE["user"]);?></p>
+                <p class="name_author"> <?=htmlspecialchars($_SESSION['name']);?></p><br>
+                <p class="name_author "><?=htmlspecialchars($_SESSION['email']);?></p>
                 <a href="../authorization&check in/exit.php">Чтобы выйти нажмите по ссылке.</a>
             </a>
         </div>
@@ -73,8 +73,8 @@
 
     <div class="container">
 		<div class="column post_text">
-			<?php $result = mysqli_query($link, "SELECT * FROM `crud_post`") ?>
-                    <?php while($res = mysqli_fetch_assoc($result)) { ?>
+			<?php $result = mysqli_query($link, "SELECT * FROM `crud_post` WHERE  id_users= ".$_SESSION['id']);
+			        while($res = mysqli_fetch_assoc($result)) { ?>
 
                         <div class="reviews">
                             <div class="review_text" id="rectangle">

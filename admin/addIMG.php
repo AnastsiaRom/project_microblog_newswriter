@@ -1,3 +1,5 @@
+<? session_start();?>
+
 <html lang="en">
 <head>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
@@ -99,7 +101,7 @@ if (isset($_POST['submit'])) {
     
                 $name = strtr($name, $converter);
                 $parts = pathinfo($name);
-    
+
                 if (empty($name) || empty($parts['extension'])) {
                     $error = 'Недопустимое тип файла';
                 } elseif (!empty($allow) && !in_array(strtolower($parts['extension']), $allow)) {
@@ -125,7 +127,7 @@ if (isset($_POST['submit'])) {
                                 exit();
                             }
                             $db_table = "images";
-                            $insert = "INSERT INTO ".$db_table." VALUES ('1','$path_bd','$name')";
+                            $insert = "INSERT INTO ".$db_table." VALUES ('{$_SESSION['id']}','$path_bd','$name')";
  
                             // Если есть ошибка соединения, выводим её и убиваем подключение
                             if ($mysql->connect_error) {

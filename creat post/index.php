@@ -1,6 +1,6 @@
 <?php 
     include_once 'db.php';
-
+    session_start();
     if (isset($_POST['add'])) {
 
         // преобразуем специальные символы в текст
@@ -19,7 +19,7 @@
          // проверка введенных данных
         if($topic != '' AND $post_text != '')
         {
-            mysqli_query($link, "INSERT INTO crud_post (topic, post_text, data, id_users) VALUES ('$topic', '$post_text', '$data', '1')");
+            mysqli_query($link, "INSERT INTO crud_post (topic, post_text, data, id_users) VALUES ('$topic', '$post_text', '$data', '{$_SESSION['id']}') ");
             mysqli_close($link);
             header ("Location: /Микроблог Newswriter/admin/index.php");
         }

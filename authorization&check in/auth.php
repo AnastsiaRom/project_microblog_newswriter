@@ -6,15 +6,13 @@ session_start();
 require "blocks/correct.php";
 
 $result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'");
-$user = mysqli_fetch_row($result);
+$user = mysqli_fetch_assoc($result);
 
 if($user != null){
     $_SESSION['auth'] = true;
-
-	setcookie("user", $user[2], time() + 3600, "/"); //Создаём куки
-	setcookie("users", $user[1], time() + 3600, "/"); //Создаём куки
-    $name = $_SESSION['name'];
-	$email = $_SESSION['email'];
+	$_SESSION['id'] =  $user['id_user'];
+    $_SESSION['name'] = $user['name'];
+	$_SESSION['email'] = $user['email'];
 	$mysql->close();
 	header('Location: /Микроблог Newswriter/admin/index.php');
 }

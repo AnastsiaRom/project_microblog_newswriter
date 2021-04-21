@@ -42,7 +42,6 @@ session_start();?>
 <div class="blog_user">
     <div class="column user">
         <div class="photo_name">
-
             <?
                     $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
                     if (mysqli_connect_errno()) {

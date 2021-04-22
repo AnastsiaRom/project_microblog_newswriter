@@ -67,7 +67,7 @@
                 <a class="button_text_podval" href="">Тендер</a>
             </div>
             <div class="podval_text_child">
-                <a href="https://www.4dk.ru/s/politika-operatora">Согласие на обработку персональных данных. Политика оператора в отношении обработки персональных данных.</a>
+                <a href="../agreement.html">Согласие на обработку персональных данных. Политика оператора в отношении обработки персональных данных.</a>
             </div>
         </div>
     </div>

@@ -46,12 +46,14 @@
                        printf("Не удалось подключиться: %s\n", mysqli_connect_error());
                        exit();
                     }
-
-                    $results = mysqli_query($link,"SELECT * FROM users");
+                    $querys = ("SELECT * FROM images WHERE id_user = 1");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 1");
                     $resu = mysqli_fetch_assoc($results);
                     foreach($results as $resu): ?>
                         <p class="name_author"> <?=$resu['name'];?></p><br>
-                        <? $query = ("SELECT * FROM images WHERE id_users"); ?>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 1"); ?>
                         <?
 
                     if ($result = $mysql->query($query)) {
@@ -60,11 +62,8 @@
                        }
                        $result->close();
                       }
-
                     ?>
-
                     <? endforeach; ?>
-
                 <a class="navbar-brand">
                 </a>
             </div>
@@ -72,7 +71,7 @@
 
         <div class="container" href="selected_blog.php">
             <div class="column post_text">
-                <?php $result = mysqli_query($link, "SELECT * FROM crud_post ORDER BY id_users");
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 1");
                     while($res = mysqli_fetch_assoc($result)) { ?>
 
                        <div class="reviews">
@@ -82,13 +81,521 @@
                                <?= $res['post_text'] ?> <br>
                                 </div>
                           </div>
-                          <hr />
                     <? } ?>
                 </div>
             </div>
         </div>
     </div>
+    <hr />
 
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 1");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 2");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 2"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 2");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 1");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 3");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 3"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 3");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 1");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 4");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 4"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 4");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 1");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 5");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 5"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 5");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 6");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 6");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 6"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 6");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 7");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 7");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 7"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 7");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 8");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 8");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 8"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 8");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 9");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 9");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 9"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 9");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 10");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 10");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 10"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 10");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="blog_user">
+        <div class="column user">
+            <div class="photo_name">
+                <?
+                    $mysql = new mysqli("localhost", "root", "root", "newswriter_bd");
+                    if (mysqli_connect_errno()) {
+                       printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+                       exit();
+                    }
+                    $querys = ("SELECT * FROM images WHERE id_user = 11");
+                    $results = mysqli_query($link,"SELECT * FROM users WHERE  id_user= 11");
+                    $resu = mysqli_fetch_assoc($results);
+                    foreach($results as $resu): ?>
+                        <p class="name_author"> <?=$resu['name'];?></p><br>
+                        <p class="name_author"> <?=$resu['email'];?></p><br>
+
+                        <? $query = ("SELECT * FROM images WHERE id_users = 11"); ?>
+                        <?
+
+                    if ($result = $mysql->query($query)) {
+                       while ($last = $result->fetch_assoc()) {
+                           echo '<a href='.$last['path'].$last['img'].'><img src='.$last['path'].$last['img'].' class="cirle_logo"></a>';
+                       }
+                       $result->close();
+                      }
+                    ?>
+                    <? endforeach; ?>
+                <a class="navbar-brand">
+                </a>
+            </div>
+        </div>
+
+        <div class="container" href="selected_blog.php">
+            <div class="column post_text">
+                <? $result = mysqli_query($link, "SELECT * FROM crud_post WHERE  id_users= 11");
+                    while($res = mysqli_fetch_assoc($result)) { ?>
+
+                       <div class="reviews">
+                          <div class="review_text" id="rectangle">
+                              <b>Тема:</b> <?= $res['topic'] ?> | <b>Дата:</b> <?= date("d.m.y | <b>Время:</b> H.i", strtotime($res['data'])) ?> | <?= $res['id_users'] ?>
+                               <br>
+                               <?= $res['post_text'] ?> <br>
+                                </div>
+                          </div>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
 
     <div class="podval">
         <div class="podval_left">
